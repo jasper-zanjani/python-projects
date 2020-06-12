@@ -25,6 +25,9 @@ def main():
   action = ttk.Button(win, text='Click me!', command=click_me)
   action.grid(column=1, row=0)
 
+  # Bring focus to textbox as soon as program runs (p. 22)
+  name_entered.focus()
+
   win.mainloop()
 
 if __name__ == '__main__':
