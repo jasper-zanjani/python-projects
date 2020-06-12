@@ -5,6 +5,6 @@ win = tk.Tk()
 
 win.title("Python GUI")
 
-win.resizable(True, True)
+ttk.Label(win, text="A label").grid(column = 0, row = 0)
 
 win.mainloop()
