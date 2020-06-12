@@ -22,12 +22,23 @@ def main():
     a_label.configure(foreground='red')
     a_label.configure(text='A Red Label')
 
+    # Disable button after it is pressed, p. 23
+    action.configure(state='disabled')
+
   action = ttk.Button(win, text='Click me!', command=click_me)
   action.grid(column=1, row=0)
 
+  # Dropdown menu (p. 24)
+  ttk.Label(win, text="Choose a number:").grid(column=3,row=0)
+  number = tk.StringVar()
+  number_chosen = ttk.Combobox(win, width=12,textvariable=number)
+  number_chosen['values'] = (1, 2, 4, 42, 100)
+  number_chosen.grid(column=3, row=1)
+  number_chosen.current(0)
+
   # Bring focus to textbox as soon as program runs (p. 22)
   name_entered.focus()
-
+  win.resizable(False, False)
   win.mainloop()
 
 if __name__ == '__main__':
