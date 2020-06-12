@@ -36,6 +36,22 @@ def main():
   number_chosen.grid(column=3, row=1)
   number_chosen.current(0)
 
+  # Checkboxes p. 27
+  chVarDis = tk.IntVar()
+  check1 = tk.Checkbutton(win, text="Disabled", variable=chVarDis, state='disabled')
+  check1.select()
+  check1.grid(column=0, row=4, sticky=tk.W)
+
+  chVarUn = tk.IntVar()
+  check2 = tk.Checkbutton(win, text="Unchecked", variable=chVarUn)
+  check2.deselect()
+  check2.grid(column=1, row=4, sticky=tk.W)
+
+  chVarEn = tk.IntVar()
+  check3 = tk.Checkbutton(win, text="Enabled", variable=chVarEn)
+  check3.select()
+  check3.grid(column=2, row=4, sticky=tk.W)
+
   # Bring focus to textbox as soon as program runs (p. 22)
   name_entered.focus()
   win.resizable(False, False)
