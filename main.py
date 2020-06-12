@@ -52,6 +52,35 @@ def main():
   check3.select()
   check3.grid(column=2, row=4, sticky=tk.W)
 
+  # Radio buttons
+  Blue = "Blue"
+  Red = "Red"
+  Gold = "Gold"
+
+  def colorize(arg, color):
+    arg.configure(background=color)
+  
+  def radCall():
+    radSel = radVar.get()
+    if radSel == 1: 
+      for item in [win, rad1, rad2, rad3, check1, check2, check3, action, a_label]:
+        colorize(item, Red)
+    elif radSel == 2: 
+      for item in [win, rad1, rad2, rad3, check1, check2, check3, action, a_label]:
+        colorize(item, Blue)
+    else: 
+      for item in [win, rad1, rad2, rad3, check1, check2, check3, action, a_label]:
+        colorize(item, Gold)
+
+  radVar = tk.IntVar()
+  rad1 = tk.Radiobutton(win, text=Red, variable=radVar, value=1, command=radCall)
+  rad2 = tk.Radiobutton(win, text=Blue, variable=radVar, value=2, command=radCall)
+  rad3 = tk.Radiobutton(win, text=Gold, variable=radVar, value=3, command=radCall)
+  
+  rad1.grid(column=0, row=5, sticky=tk.W, columnspan=3)
+  rad2.grid(column=1, row=5, sticky=tk.W, columnspan=3)
+  rad3.grid(column=2, row=5, sticky=tk.W, columnspan=3)
+
   # Bring focus to textbox as soon as program runs (p. 22)
   name_entered.focus()
   win.resizable(False, False)
