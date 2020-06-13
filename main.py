@@ -6,42 +6,42 @@ def main():
   win = tk.Tk()
   win.title("Great success")
 
-  # Combining these lines produces an error
+  # Method chaining produces an error
   # a_label = ttk.Label(win, text="A label").grid(column = 0, row = 0)
-  a_label = ttk.Label(win, text="A label")
+  a_label = ttk.Label(win, text="Enter a name:")
   a_label.grid(column = 0, row = 0)
 
   name = tk.StringVar()
-  name_entered = ttk.Entry(win, width=12, textvariable=name)
-  name_entered.grid(column=2, row=0)
+  textbox = ttk.Entry(win, width=12, textvariable=name)
+  textbox.grid(column=0, row=1)
 
   def click_me():
-    action.configure(text=f"Hello {name.get()}")
-    
-    # Combining these lines also throws an `AtributeError`
-    # a_label.configure(foreground='red').configure(text='A Red Label')
-    a_label.configure(foreground='red')
-    a_label.configure(text='A Red Label')
-
+    button.configure(text=f"Hello {name.get()}")
     # Disable button after it is pressed, p. 23
-    action.configure(state='disabled')
+    button.configure(state='disabled')
 
-  action = ttk.Button(win, text='Click me!', command=click_me)
-  action.grid(column=1, row=0)
+    # Method chaining throws an `AtributeError`
+    # a_label.configure(foreground='red').configure(text='A Red Label')
+    a_label.configure(foreground='red',text='Button is clicked!')
+
+  button = ttk.Button(win, text='Click me!', command=click_me)
+  button.grid(column=2, row=1)
 
   # Dropdown menu (p. 24)
-  ttk.Label(win, text="Choose a number:").grid(column=3,row=0)
+  ttk.Label(win, text="Choose a number:").grid(column=1,row=0)
   number = tk.StringVar()
-  number_chosen = ttk.Combobox(win, width=12,textvariable=number)
-  number_chosen['values'] = (1, 2, 4, 42, 100)
-  number_chosen.grid(column=3, row=1)
-  number_chosen.current(0)
+  dropdown = ttk.Combobox(win, width=12,textvariable=number)
+  dropdown['values'] = (1, 2, 4, 42, 100)
+  dropdown.grid(column=1, row=1)
+  dropdown.current(0)
 
   # Checkboxes p. 27
   chVarDis = tk.IntVar()
   check1 = tk.Checkbutton(win, text="Disabled", variable=chVarDis, state='disabled')
   check1.select()
-  check1.grid(column=0, row=4, sticky=tk.W)
+  check1.grid(column=0, row=4,)
+  # The `sticky=tk.W` appears to change the margin between the element and the window border
+  # check1.grid(column=0, row=4, sticky=tk.W)
 
   chVarUn = tk.IntVar()
   check2 = tk.Checkbutton(win, text="Unchecked", variable=chVarUn)
@@ -54,9 +54,7 @@ def main():
   check3.grid(column=2, row=4, sticky=tk.W)
 
   # Radio buttons
-  Blue = "Blue"
-  Red = "Red"
-  Gold = "Gold"
+  Blue, Red, Gold = "Blue", "Red", "Gold"
 
   def colorize(arg, color):
     arg.configure(background=color)
@@ -78,16 +76,27 @@ def main():
   rad2 = tk.Radiobutton(win, text=Blue, variable=radVar, value=2, command=radCall)
   rad3 = tk.Radiobutton(win, text=Gold, variable=radVar, value=3, command=radCall)
   
-  rad1.grid(column=0, row=5, sticky=tk.W, columnspan=3)
-  rad2.grid(column=1, row=5, sticky=tk.W, columnspan=3)
-  rad3.grid(column=2, row=5, sticky=tk.W, columnspan=3)
+  rad1.grid(column=0, row=5)
+  rad2.grid(column=1, row=5)
+  rad3.grid(column=2, row=5)
+
+  # rad1.grid(column=0, row=5, sticky=tk.W, columnspan=3)
+  # rad2.grid(column=1, row=5, sticky=tk.W, columnspan=3)
+  # rad3.grid(column=2, row=5, sticky=tk.W, columnspan=3)
 
   # Textbox with scrollbar, p. 32
   textbox = scrolledtext.ScrolledText(win, width=30, height=5, wrap = tk.WORD)
   textbox.grid(column=0, columnspan=3)
 
+  # Labels, p. 38
+  buttons_frame = ttk.LabelFrame(win, text=' Labels in a Frame ')
+  buttons_frame.grid(column=0, row=7)
+  ttk.Label(buttons_frame, text='Label1').grid(column=0, row=0, sticky=tk.W)
+  ttk.Label(buttons_frame, text='Label2').grid(column=0, row=1, sticky=tk.W)
+  ttk.Label(buttons_frame, text='Label3').grid(column=0, row=2, sticky=tk.W)
+
   # Bring focus to textbox as soon as program runs (p. 22)
-  name_entered.focus()
+  button.focus()
   win.resizable(False, False)
   win.mainloop()
 
