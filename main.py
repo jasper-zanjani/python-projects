@@ -108,12 +108,18 @@ def main():
   menu_bar = tk.Menu(win)
   win.config(menu=menu_bar)
   
+  # File menu, p. 56-58
   # Without specifying `tearoff=0` a dashed line appears above menu, p.58
   file_menu = tk.Menu(menu_bar, tearoff=0) 
   file_menu.add_command(label="New")
   file_menu.add_separator() # p. 58
   file_menu.add_command(label="Exit") # p. 57
   menu_bar.add_cascade(label="File", menu=file_menu)
+  
+  # Help menu, p. 59
+  help_menu = tk.Menu(menu_bar, tearoff=0) 
+  menu_bar.add_cascade(label="Help", menu=help_menu)
+  help_menu.add_command(label="About")
 
   win.resizable(True, True)
   win.mainloop()
