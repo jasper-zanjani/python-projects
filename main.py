@@ -104,6 +104,13 @@ def main():
   # for i in buttons_frame.winfo_children():
   #   i.grid_configure(padx=8, pady=4)
 
+  # Adding a menu bar, p. 55-56
+  menu_bar = tk.Menu(win)
+  win.config(menu=menu_bar)
+
+  file_menu = tk.Menu(menu_bar)
+  file_menu.add_command(label="New")
+  menu_bar.add_cascade(label="File", menu=file_menu)
 
   win.resizable(True, True)
   win.mainloop()
