@@ -95,6 +95,9 @@ def main():
   ttk.Label(buttons_frame, text='Label2').grid(column=0, row=1, sticky=tk.W)
   ttk.Label(buttons_frame, text='Label3').grid(column=0, row=2, sticky=tk.W)
 
+  for i in buttons_frame.winfo_children():
+    i.grid_configure(padx=8, pady=4)
+
   # Bring focus to textbox as soon as program runs (p. 22)
   button.focus()
   win.resizable(False, False)
