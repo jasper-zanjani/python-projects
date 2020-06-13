@@ -90,7 +90,7 @@ def main():
 
   # Labels, p. 38
   buttons_frame = ttk.LabelFrame(win, text=' Labels in a Frame ')
-  buttons_frame.grid(column=0, row=7)
+  buttons_frame.grid(column=0, row=7, padx=20, pady=40)
   ttk.Label(buttons_frame, text='Label1').grid(column=0, row=0, sticky=tk.W)
   ttk.Label(buttons_frame, text='Label2').grid(column=0, row=1, sticky=tk.W)
   ttk.Label(buttons_frame, text='Label3').grid(column=0, row=2, sticky=tk.W)
