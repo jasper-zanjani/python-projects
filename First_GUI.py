@@ -3,14 +3,14 @@ from tkinter import ttk, scrolledtext
 
 
 def main():
-  win = tk.Tk()
-  win.title("Great success")
+  window = tk.Tk()
+  window.title("Great success")
 
-  mighty = ttk.LabelFrame(win, text=' Mighty Python ')
+  mighty = ttk.LabelFrame(window, text=' Mighty Python ')
   mighty.grid(column=0, row=0, padx=8, pady=4)
 
   # Method chaining produces an error
-  # a_label = ttk.Label(win, text="A label").grid(column = 0, row = 0)
+  # a_label = ttk.Label(window, text="A label").grid(column = 0, row = 0)
   a_label = ttk.Label(mighty, text="Enter a name:")
   a_label.grid(column = 0, row = 0, sticky=(tk.W, tk.E))
 
@@ -65,13 +65,13 @@ def main():
   def radCall():
     radSel = radVar.get()
     if radSel == 1: 
-      for item in [win, mighty, rad1, rad2, rad3, check1, check2, check3, button, a_label]:
+      for item in [window, mighty, rad1, rad2, rad3, check1, check2, check3, button, a_label]:
         colorize(item, Red)
     elif radSel == 2: 
-      for item in [win, mighty, rad1, rad2, rad3, check1, check2, check3, button, a_label]:
+      for item in [window, mighty, rad1, rad2, rad3, check1, check2, check3, button, a_label]:
         colorize(item, Blue)
     else: 
-      for item in [win, mighty, rad1, rad2, rad3, check1, check2, check3, button, a_label]:
+      for item in [window, mighty, rad1, rad2, rad3, check1, check2, check3, button, a_label]:
         colorize(item, Gold)
 
   radVar = tk.IntVar()
@@ -105,13 +105,13 @@ def main():
   #   i.grid_configure(padx=8, pady=4)
 
   def _quit():
-    win.quit()
-    win.destroy()
+    window.quit()
+    window.destroy()
     exit()
 
   # Adding a menu bar, p. 55-56
-  menu_bar = tk.Menu(win)
-  win.config(menu=menu_bar)
+  menu_bar = tk.Menu(window)
+  window.config(menu=menu_bar)
   
   # File menu, p. 56-58
   # Without specifying `tearoff=0` a dashed line appears above menu, p.58
@@ -126,8 +126,8 @@ def main():
   menu_bar.add_cascade(label="Help", menu=help_menu)
   help_menu.add_command(label="About")
 
-  win.resizable(True, True)
-  win.mainloop()
+  window.resizable(True, True)
+  window.mainloop()
 
 if __name__ == '__main__':
   main()
