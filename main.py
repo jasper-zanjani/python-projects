@@ -12,16 +12,15 @@ def main():
   # Method chaining produces an error
   # a_label = ttk.Label(win, text="A label").grid(column = 0, row = 0)
   a_label = ttk.Label(mighty, text="Enter a name:")
-  a_label.grid(column = 0, row = 0)
+  a_label.grid(column = 0, row = 0, sticky=(tk.W, tk.E))
 
   name = tk.StringVar()
   textbox = ttk.Entry(mighty, width=12, textvariable=name)
-  textbox.grid(column=0, row=1)
+  textbox.grid(column=0, row=1, sticky=(tk.W,tk.E))
 
   def click_me():
     button.configure(text=f"Hello {name.get()}")
-    # Disable button after it is pressed, p. 23
-    button.configure(state='disabled')
+    button.configure(state='disabled') # Disable button after it is pressed, p. 23
 
     # Method chaining throws an `AtributeError`
     # a_label.configure(foreground='red').configure(text='A Red Label')
