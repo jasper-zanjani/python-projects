@@ -89,12 +89,15 @@ def main():
   textbox.grid(column=0, columnspan=3)
 
   # Labels, p. 38
-  buttons_frame = ttk.LabelFrame(win, text=' Labels in a Frame ')
+  buttons_frame = ttk.LabelFrame(win, text='')
   buttons_frame.grid(column=0, row=7, padx=20, pady=40)
-  ttk.Label(buttons_frame, text='Label1').grid(column=0, row=0, sticky=tk.W)
+  ttk.Label(buttons_frame, text='Label1 - Once upon a midnight dreary, while I pondered weak and weary').grid(column=0, row=0, sticky=tk.W)
   ttk.Label(buttons_frame, text='Label2').grid(column=0, row=1, sticky=tk.W)
   ttk.Label(buttons_frame, text='Label3').grid(column=0, row=2, sticky=tk.W)
 
+  # - `winfo_children()` method returns a list of all children, (p. 43)
+  # - `grid_configure()` method allows modification of UI elements before 
+  #    the main loop displays them
   for i in buttons_frame.winfo_children():
     i.grid_configure(padx=8, pady=4)
 
