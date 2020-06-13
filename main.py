@@ -1,5 +1,6 @@
 import tkinter as tk
-from tkinter import ttk
+from tkinter import ttk, scrolledtext
+
 
 def main():
   win = tk.Tk()
@@ -80,6 +81,10 @@ def main():
   rad1.grid(column=0, row=5, sticky=tk.W, columnspan=3)
   rad2.grid(column=1, row=5, sticky=tk.W, columnspan=3)
   rad3.grid(column=2, row=5, sticky=tk.W, columnspan=3)
+
+  # Textbox with scrollbar, p. 32
+  textbox = scrolledtext.ScrolledText(win, width=30, height=5, wrap = tk.WORD)
+  textbox.grid(column=0, columnspan=3)
 
   # Bring focus to textbox as soon as program runs (p. 22)
   name_entered.focus()
