@@ -110,6 +110,7 @@ def main():
 
   file_menu = tk.Menu(menu_bar)
   file_menu.add_command(label="New")
+  file_menu.add_command(label="Exit") # p. 57
   menu_bar.add_cascade(label="File", menu=file_menu)
 
   win.resizable(True, True)
