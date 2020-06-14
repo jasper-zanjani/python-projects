@@ -20,7 +20,8 @@ def main():
     else: mighty2.configure(text='Blue')
 
   def _msgBox():
-    messagebox.showinfo('Python Message Info Box', 'A Python GUIcreated using `tkinter`\nThe year is 2020.')
+    # messagebox.showinfo('Python Message Info Box', 'A Python GUI created using `tkinter`\nThe year is 2020.')
+    messagebox.showwarning('Python Message Warning Box', 'A Python GUI created using `tkinter`\nWarning: There might be a bug in this code.')
   window = tk.Tk()
   window.title("Python GUI")
 
