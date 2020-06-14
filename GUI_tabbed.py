@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import ttk, scrolledtext
+from tkinter import ttk, scrolledtext, messagebox
 
 def main():
   def _quit():
@@ -18,6 +18,9 @@ def main():
     if radSel == 1: mighty2.configure(text='Gold')
     elif radSel == 2: mighty2.configure(text='Red')
     else: mighty2.configure(text='Blue')
+
+  def _msgBox():
+    messagebox.showinfo('Python Message Info Box', 'A Python GUIcreated using `tkinter`\nThe year is 2020.')
   window = tk.Tk()
   window.title("Python GUI")
 
@@ -33,7 +36,7 @@ def main():
 
   help_menu = tk.Menu(menu_bar, tearoff=0) 
   menu_bar.add_cascade(label="Help", menu=help_menu)
-  help_menu.add_command(label="About")
+  help_menu.add_command(label="About", command=_msgBox)
 
   # Tab controls, p. 63
   tabControl = ttk.Notebook(window)
