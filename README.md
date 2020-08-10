@@ -1,0 +1,3 @@
+# :snake: Python projects
+- [**Learning TKinter**](learning-tkinter): Basic tutorial projects to learn the tkinter framework, following [Python GUI Programming Cookbook](https://www.packtpub.com/programming/python-gui-programming-cookbook-third-edition) by [Burkhard Meier](https://www.linkedin.com/in/burkhard-meier-2962465/).
+- [**Laudable Layout**](Laudable): Python port of the the [ Laudable Layout Challenge ](https://youtu.be/eh_0opgouTE), part 11 of Bob Tabor's [Windows 10 Development for Absolute Beginners](https://www.youtube.com/playlist?list=PLi2hbezQRVS0cPMeW3uDlUHnO_rPvJCV9) YouTube course.
