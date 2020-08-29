@@ -19,15 +19,20 @@ def write(data,filename):
         print(f'{filename} written')
 
 @click.command()
-@click.argument('filename')
+@click.argument('filename', nargs=-1)
 def main(filename):
     print(f'Received argument {filename}')
     files = list()
-    if filename.find( '*') > 0:
-        print('Initiating globbing')
-        files = [os.path.abspath(f) for f in glob.glob(os.path.expanduser(filename))]
+
+    if len(filename) == 1:
+        if filename[0].find( '*') > 0:
+            print('Initiating globbing')
+            files = [os.path.abspath(f) for f in glob.glob(os.path.expanduser(filename[0]))]
+        else:
+            files = list(filename[0])
     else:
-        files = [filename]
+        files = [i for i in filename]
+
     print(f'Converting {len(files)} files ')
     for f in files:
         data = read(f)
