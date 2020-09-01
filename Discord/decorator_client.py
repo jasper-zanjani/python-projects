@@ -28,6 +28,11 @@ async def bitcoin(ctx):
     value = response.json()['bpi']['USD']['rate']
     await ctx.send(f'Bitcoin price is: {value}')
 
+@client.event
+async def on_message_delete(msg):
+    ctx = await client.get_context(msg)
+    print("Message deleted")
+    await ctx.send('No takebacks!')
 
 # async def list_servers():
 #     await decorator_client.wait_until_ready()
