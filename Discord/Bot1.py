@@ -19,4 +19,11 @@ async def eight_ball(ctx):
 async def on_ready():
     await client.change_presence(activity=discord.Game(name="Fall Guys"))
 
+@client.command()
+async def bitcoin(ctx):
+    url='https://api.coindesk.com/v1/bpi/currentprice/BTC.json'
+    response = requests.get(url)
+    value = response.json()['bpi']['USD']['rate']
+    await ctx.send(f'Bitcoin price is: {value}')
+
 client.run(token)
