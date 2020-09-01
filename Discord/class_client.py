@@ -5,7 +5,7 @@ import dotenv
 dotenv.load_dotenv()
 token = os.getenv('TOKEN')
 
-class MyClient(discord.Client):
+class client(discord.Client):
     async def on_ready(self):
         print('Logged in as')
         print(self.user.name)
@@ -22,6 +22,6 @@ class MyClient(discord.Client):
         elif message.content.startswith('!bot'):
             await message.channel.send(f':wave:')
 
-client = MyClient()
+client = client()
 client.run(token)
 

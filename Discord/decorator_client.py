@@ -9,6 +9,7 @@ from discord.ext.commands import Bot
 
 dotenv.load_dotenv()
 token = os.getenv('TOKEN')
+
 client = Bot(command_prefix=["?", "!"])
 
 @client.command(name='8ball', description='Answers a yes/no question', brief='Answers from beyond', aliases=['eight_ball','eightball','8-ball'])
@@ -27,13 +28,14 @@ async def bitcoin(ctx):
     value = response.json()['bpi']['USD']['rate']
     await ctx.send(f'Bitcoin price is: {value}')
 
-async def list_servers():
-    await client.wait_until_ready()
-    while not client.is_closed:
-        print('Current servers:')
-        for server in client.servers:
-            print(server.name)
-        await asyncio.sleep(6)
 
-client.loop.create_task(list_servers())
+# async def list_servers():
+#     await decorator_client.wait_until_ready()
+#     while not decorator_client.is_closed:
+#         print('Current servers:')
+#         for server in decorator_client.servers:
+#             print(server.name)
+#         await asyncio.sleep(6)
+
+# decorator_client.loop.create_task(list_servers())
 client.run(token)
