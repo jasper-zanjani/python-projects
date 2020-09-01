@@ -1,3 +1,4 @@
+import asyncio
 import dotenv
 import os
 import discord
@@ -26,4 +27,13 @@ async def bitcoin(ctx):
     value = response.json()['bpi']['USD']['rate']
     await ctx.send(f'Bitcoin price is: {value}')
 
+async def list_servers():
+    await client.wait_until_ready()
+    while not client.is_closed:
+        print('Current servers:')
+        for server in client.servers:
+            print(server.name)
+        await asyncio.sleep(6)
+
+client.loop.create_task(list_servers())
 client.run(token)
