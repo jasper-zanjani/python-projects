@@ -1,7 +1,7 @@
 import asyncio
+import discord
 import dotenv
 import os
-import discord
 import random
 import requests
 from discord.ext.commands import Bot
@@ -10,7 +10,7 @@ from discord.ext.commands import Bot
 dotenv.load_dotenv()
 token = os.getenv('TOKEN')
 
-client = Bot(command_prefix=["?", "!"])
+client = Bot(command_prefix=["?", "!",'.'])
 
 @client.command(name='8ball', description='Answers a yes/no question', brief='Answers from beyond', aliases=['eight_ball','eightball','8-ball'])
 async def eight_ball(ctx):
@@ -19,7 +19,20 @@ async def eight_ball(ctx):
 
 @client.event
 async def on_ready():
+    print('Bot is ready!')
     await client.change_presence(activity=discord.Game(name="Fall Guys"))
+
+@client.command()
+async def clear(ctx, amount=5):
+  await ctx.channel.purge(limit=amount)
+
+@client.command()
+async def kick(ctx, member : discord.Member, *, reason = None):
+    await member.kick(reason=reason)
+
+@client.command()
+async def ban(ctx, member : discord.Member, *, reason = None):
+    await member.ban(reason=reason)
 
 @client.command()
 async def bitcoin(ctx):
