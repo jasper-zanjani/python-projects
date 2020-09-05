@@ -9,8 +9,11 @@ token = os.getenv('TOKEN')
 client = commands.Bot(command_prefix='.')
 
 
-# client.load_extension('cogs.Status')
-# client.load_extension('cogs.Admin')
-# client.load_extension('cogs.Guild')
+client.load_extension('cogs.Status')
+client.load_extension('cogs.Admin')
+client.load_extension('cogs.Guild')
 client.load_extension('cogs.Example')
-client.run(token)
+client.load_extension('cogs.Embed')
+
+if __name__ == "__main__":
+    client.run(token)
