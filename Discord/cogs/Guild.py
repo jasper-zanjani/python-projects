@@ -24,5 +24,10 @@ class Guild(commands.Cog):
     embed = discord.Embed(title = f'{ctx.guild.name} channels', description = '**Channels:**\n- ' + "\n- ".join(channels))
     await ctx.send(embed=embed)
 
+  @commands.command()
+  async def getmembers(self, ctx):
+    members = [m.name for m in ctx.guild.members]
+    print(members)
+
 def setup(client):
     client.add_cog(Guild(client)) 
