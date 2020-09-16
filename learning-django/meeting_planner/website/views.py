@@ -8,3 +8,6 @@ def welcome(request):
 
 def date(req):
   return HttpResponse(f'This page was served at {datetime.now()}')
+
+def about(req):
+  return HttpResponse(f'I\'m an impatient but dilligent, hard-working, overweight programmer.')
