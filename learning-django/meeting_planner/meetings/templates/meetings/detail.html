@@ -8,5 +8,8 @@
 <body>
   <h1>{{meeting.title}}</h1>
   <p>This meeting has been scheduled for {{meeting.date}} at {{meeting.start_time}} in <strong>{{meeting.room}}</strong>.</p>
+  <p>
+    <a href="{% url 'home' %}">Home</a>
+  </p>
 </body>
 </html>
