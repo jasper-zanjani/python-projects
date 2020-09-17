@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rooms</title>
-</head>
-<body>
+{% extends "base.html"%}
+{% block title %}Rooms{%endblock title %}
+
+{% block content %}
+  <h1>Rooms</h1>
   <table><tbody>
     <tr><th>Name</th><th>Floor</th><th>Number</th></tr>
     {% for room in rooms %}
@@ -14,5 +11,7 @@
       </tr>
     {% endfor %}
   </tbody></table>
-</body>
-</html>
+  <p>
+    <a href="{% url 'home' %}">Home</a>
+  </p>
+{% endblock content %}

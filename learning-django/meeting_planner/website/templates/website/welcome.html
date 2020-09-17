@@ -1,14 +1,10 @@
-{% load static %}
+{% extends "base.html" %}
+{% block title %}
+Welcome to the new meeting planner!
+{% endblock title %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{% static 'website/style.css' %}">
-  <title>Welcome!</title>
-</head>
-<body>
+{% block content %}
+{% load static %}
   <h1>Welcome to the meeting planner!</h1>
   <p>This is the demo application for the course</p>
   <h2>Meetings</h2>
@@ -24,5 +20,9 @@
   <p>
     <a href="{% url 'rooms' %}">Rooms</a>
   </p>
-</body>
-</html>
+
+  <p>
+    <!-- Check out my upcoming tutorial: <br/>
+    <img src="{% static 'website/YouTube thumb.png' %}"> -->
+  </p>
+{% endblock content %}
