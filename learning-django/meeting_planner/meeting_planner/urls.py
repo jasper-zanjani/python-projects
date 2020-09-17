@@ -19,5 +19,5 @@ from website.views import welcome, date, about
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', about)
+    path('', welcome)
 ]
