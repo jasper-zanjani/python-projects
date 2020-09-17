@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rooms</title>
+</head>
+<body>
+  <table><tbody>
+    <tr><th>Name</th><th>Floor</th><th>Number</th></tr>
+    {% for room in rooms %}
+      <tr>
+        <td>{{room.name}}</td><td>{{room.floor}}</td><td>{{room.room}}</td>
+      </tr>
+    {% endfor %}
+  </tbody></table>
+</body>
+</html>
