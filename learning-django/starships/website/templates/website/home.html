@@ -1,0 +1,11 @@
+
+{% extends 'base.html' %}
+{% block content %}
+  <h1 class="title">Starships</h1>
+  <ul>
+    {% for ship in ships %}
+      <li>{{ship.name}} ({{ship.registry}}): crew of {{ship.crew}}</li>
+    {% endfor %}
+  </ul>
+
+{% endblock content %}
