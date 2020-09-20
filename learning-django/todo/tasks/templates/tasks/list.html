@@ -1,8 +1,9 @@
 <h3>To Do</h3>
 
-<form>
+<form method="POST" action="/">
   {{form.title}}
-  <input type="submit" name="Create task">
+  {% csrf_token %}
+  <input type="submit" name="Create task" >
 </form>
 
 {% for task in tasks %}
