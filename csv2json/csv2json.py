@@ -9,7 +9,8 @@ def read(filename):
     with open(filename,'r') as f:
         cr = csv.reader(f)
         headers = next(cr)
-        output.append(dict(zip(headers,next(cr))))
+        for i in cr:
+            output.append(dict(zip(headers,next(cr))))
         print(f'{filename} read')
     return output
 
@@ -21,10 +22,10 @@ def write(data,filename):
 @click.command()
 @click.argument('filename', nargs=-1)
 def main(filename):
-    print(f'Received argument {filename}')
+    print(f"Received argument {filename}")
     files = list()
 
-    if len(filename) == 1:
+    if isinstance(filename,str):
         if filename[0].find( '*') > 0:
             print('Initiating globbing')
             files = [os.path.abspath(f) for f in glob.glob(os.path.expanduser(filename[0]))]
