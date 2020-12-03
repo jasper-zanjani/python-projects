@@ -12,36 +12,34 @@ def print_equation(*ops, operation=Operations.ADDITION):
         print(Style.RESET_ALL,' + ', end='')
         print(Fore.YELLOW,str(ops[1]), end='')
         answer = ops[0] + ops[1]
-    else:
+    elif operation == Operations.SUBTRACTION:
         print(Fore.CYAN,str(ops[1]), end='')
         print(Style.RESET_ALL,' - ', end='')
         print(Fore.YELLOW,str(ops[0]), end='')
         answer = ops[1] - ops[0]
+    else:
+        print(Fore.RED, "Unknown operation!")
     print(Style.RESET_ALL,' = ', end='')
     # print(f"{a} + {b} = ", end="")
     c = input()
     if str(answer) == c:
         print(Fore.GREEN, 'Correct!', Style.RESET_ALL, end='\n\n')
+        return True
     else:
-        print(Fore.RED, 'Incorrect!', Style.RESET_ALL, end='\n\n')
+        print(Fore.RED, 'Incorrect! ', end='')
+        print(Style.RESET_ALL, 'Try again, Smellyana...', end='\n\n')
+        return False
 
 try:
+    continue_ = True
     while True:
-        b = random.randrange(10)
-        a = random.randrange(b,20)
-        op = random.sample(list(Operations), 1)[0]
-        print_equation(b,a,operation=op)
-        # print(Style.DIM, op.name, end='\n')
-        # print(Fore.CYAN,str(a), end='')
-        # print(Style.RESET_ALL,' + ', end='')
-        # print(Fore.YELLOW,str(b), end='')
-        # print(Style.RESET_ALL,' = ', end='')
-        # # print(f"{a} + {b} = ", end="")
-        # c = input()
-        # if str(a + b) == c:
-        #     print(Fore.GREEN, 'Correct!', Style.RESET_ALL, end='\n\n')
-        # else:
-        #     print(Fore.RED, 'Incorrect!', Style.RESET_ALL, end='\n\n')
+        if continue_ == True:
+            b = random.randrange(10)
+            a = random.randrange(b,20)
+            op = random.sample(list(Operations), 1)[0]
+        elif continue_ == False:
+            pass
+        continue_ = print_equation(b,a,operation=op)
 except KeyboardInterrupt:
     print('\n')
     exit()
