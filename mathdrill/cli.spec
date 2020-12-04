@@ -3,11 +3,11 @@
 block_cipher = None
 
 
-a = Analysis(['math-drill.py'],
-             pathex=['/home/jasper/github/python/math-drill'],
+a = Analysis(['cli.py'],
+             pathex=['/home/jasper/github/python/mathdrill'],
              binaries=[],
              datas=[],
-             hiddenimports=['colorama'],
+             hiddenimports=[],
              hookspath=[],
              runtime_hooks=[],
              excludes=[],
@@ -23,7 +23,7 @@ exe = EXE(pyz,
           a.zipfiles,
           a.datas,
           [],
-          name='math-drill',
+          name='cli',
           debug=False,
           bootloader_ignore_signals=False,
           strip=False,
